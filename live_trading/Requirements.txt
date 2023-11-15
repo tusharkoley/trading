@@ -1,0 +1,4 @@
+yfinance
+aioboto3
+aiobotocore
+datapackage
