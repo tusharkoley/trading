@@ -74,7 +74,28 @@ class PriceData(object):
           data = yf.download(tickers=ticker, start=start_time, end=end_time) 
           return data
 
-       
+
+class EPS:
+     def __init__(self) -> None:         
+          self.eps = pd.DataFrame()
+
+    def __get__(self, obj, objtype):
+          self.ticker = getattr(obj, 'ticker')
+          self.start_time = getattr(obj, 'start_time')
+          self.end_time = getattr(obj, 'end_time')
+         
+          
+          return self.eps
+    
+    def __set__(self,obj, value):
+          print('Setting the new price')
+          self.price = value
+
+    def get_latest_eps_info(self, ticker, start_time, end_time):
+          data = yf.download(tickers=ticker, start=start_time, end=end_time) 
+          return data
+     
+
 
 class Stock(object):
 
